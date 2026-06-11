@@ -7,7 +7,7 @@
 // Input: nums = [1, 2, 3, 4]
 // Output: false
 
-//SOLUTION
+//SOLUTION: FREQUENCY COUNTER PATTERN
 function hasDuplicate(nums) {
   // check if the array is empty
   if (nums.length == 0) {
