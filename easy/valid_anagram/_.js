@@ -7,8 +7,33 @@
 // Example 2:
 // Input: s = "jar", t = "jam"
 // Output: false
+//
+// BRUTE FORCE(0(n^2))
+function validAnagramBruteForceSolution(s, t) {
+  // check the length of the strings
+  if (s.length !== t.length) {
+    return false;
+  }
 
-// SOLUTION: FREQUENCY COUNTER PATTERN
+  // convert t to an array
+  let arrT = t.split("");
+
+  // loop through s and check the index of each character in arrT
+  for (let val of s) {
+    // create an index variable to help compare the characters
+    let indexT = arrT.indexOf(val);
+
+    // check to see if the s characters are existing in the arrT
+    if (indexT === -1) {
+      return false;
+    }
+    arrT.splice(indexT, 1);
+  }
+
+  return true;
+}
+
+// SOLUTION: FREQUENCY COUNTER PATTERN(O(n))
 
 function validAnagram(s, t) {
   // check if the two strings have got the same length
