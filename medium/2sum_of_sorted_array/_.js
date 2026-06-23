@@ -22,7 +22,7 @@
 
 // False
 //
-// SOLUTION
+// SOLUTION: 0(n)
 
 function twoSumOfSortedArray(nums, target) {
   // declare the pointers
