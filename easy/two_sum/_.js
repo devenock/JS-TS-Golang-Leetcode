@@ -1,5 +1,5 @@
 // PROBLEM
-// Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+// Given a sorted array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
 // You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
 // Return the answer with the smaller index first.
 // Example 1:
@@ -50,4 +50,51 @@ function twoSum(nums, target) {
       start++;
     }
   }
+  return 0;
+}
+
+// PROBLEM 2: Not sorted array
+// Given a sorted array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+// You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
+// Return the answer with the smaller index first.
+// Example 1:
+// Input:
+// nums = [3,4,5,6], target = 7
+// Output: [0,1]
+// Explanation: nums[0] + nums[1] == 7, so we return [0, 1].
+// Example 2:
+// Input: nums = [4,5,6], target = 10
+// Output: [0,2]
+// Example 3:
+// Input: nums = [5,5], target = 10
+// Output: [0,1]
+//
+
+function twoSum2(nums, target) {
+  // create a copy of the array
+  let newNums = [...nums];
+
+  // sort the new array
+  newNums.sort((a, b) => a - b);
+
+  // define the pointers
+  let start = 0;
+  let end = newNums.length - 1;
+
+  // condition
+  while (start < end) {
+    let sum = newNums[start] + newNums[end];
+
+    if (sum === target) {
+      // find the index of start and end in the original array
+      let index1 = nums.indexOf(newNums[start]);
+      let index2 = nums.lastIndexOf(newNums[end]);
+      return [index1, index2];
+    } else if (sum > target) {
+      end--;
+    } else {
+      start++;
+    }
+  }
+  return [-1, -1];
 }
