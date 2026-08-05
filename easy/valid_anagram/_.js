@@ -69,3 +69,38 @@ function validAnagram(s, t) {
 
 console.log(validAnagram((s = "racecar"), (t = "carrace")));
 console.log(validAnagram((s = "jar"), (t = "jam")));
+
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+function checkAnagram(s, t) {
+  // first check if they have the same length
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  // define the frequency objects
+  let frequency1 = {};
+  let frequency2 = {};
+
+  // loop through s and assign frequencies
+  for (let val of s) {
+    frequency1[val] = (frequency1[val] || 0) + 1;
+  }
+
+  // loop through t and assign frequencies
+  for (let val of t) {
+    frequency2[val] = (frequency2[val] || 0) + 1;
+  }
+
+  // check the count of the frequencies
+  for (let key in frequency1) {
+    if (!(key in frequency2)) {
+      return false;
+    }
+
+    if (frequency1[key] > frequency2[key]) {
+      return false;
+    }
+  }
+  return true;
+}

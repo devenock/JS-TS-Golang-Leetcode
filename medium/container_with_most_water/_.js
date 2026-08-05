@@ -11,7 +11,7 @@ function maxArea(nums) {
   let area = 0;
 
   while (start < end) {
-    // declare with as the difference between the start and end indices
+    // declare width as the difference between the start and end indices
     let width = end - start;
     // declare height as the smallest between nums[start] and nums[end]
     let height = Math.min(nums[start], nums[end]);
